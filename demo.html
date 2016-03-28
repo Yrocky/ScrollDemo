@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="main.css">
+	<link rel="stylesheet" href="eric-meyer-reset.css">
+	<script src = "jquery-1.9.1.js"></script>
+	<title>Demo</title>
+</head>
+<body>
+
+<!-- 如何让导航滚动到某一个颜色区域的时候改版导航的颜色。
+
+	比如，当滚动屏幕到红色区域的时候，具体的时候是指红色区域的最上方边界滚出屏幕上边界但是红色区域的最下方边界还没有滚出屏幕上边界 ，改变导航背景颜色为红色的-->
+
+	<!-- 导航条 -->
+	<nav id = "fixed-nav">
+		<div class="nav-background">
+			<ul>
+				<li><a href="#four" class = "resume-contants-anchor" onclick="scrollTo('four');">Four Gray</a></li>
+				<li><a href="#three" class = "resume-skill-anchor" onclick="scrollTo('three');">Three Red</a></li>
+				<li><a href="#two" class = "resume-project-anchor" onclick="scrollTo('two');">Two Green</a></li>
+				<li><a href="#one" class = "resume-about-anchor" onclick="scrollTo('one');">One Orange</a></li>
+			</ul>	
+		</div>
+	</nav>
+
+	<!-- 内容部分 -->
+	<a class="one anchor"></a>
+	<div class="one-section"></div>
+
+	<a class="two anchor"></a>
+	<div class="two-section"></div>
+
+	<a class="three anchor"></a>
+	<div class="thrid-section"></div>
+
+	<a class="four anchor"></a>
+	<div class="four-section"></div>
+</body>
+
+
+<script type="text/javascript">
+
+	function scrollTo(anchor){
+
+		$('html,body').animate({
+				scrollTop: $('.'+anchor).offset().top
+		}, 800);
+
+		changeNavBackgroungColor(anchor)
+	}
+
+	function changeNavBackgroungColor(anchor){
+
+		var nav = document.getElementById("fixed-nav");
+		// nav.style.transitionProperty="background"
+		
+		if (anchor == 'one') {
+			nav.style.background = "orange";
+		}else if (anchor == 'two') {
+			nav.style.background = "green";
+		}else if (anchor == 'three') {
+
+			nav.style.background = "red";
+		}else if (anchor == 'four'){
+
+			nav.style.background = "gray";
+		}
+	}
+</script>
+</html>
